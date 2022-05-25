@@ -7,7 +7,7 @@
 58 59 9,17,22,23 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_19_6.js, tag=极速版抢卷, enabled=true
 ================Loon==============
 [Script]
-cron "58 59 9,17,22,23 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_19_6.js,tag=极速版抢卷
+cron "58 59 8,11,14,17,19 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_19_6.js,tag=极速版抢卷
 ===============Surge=================
 极速版抢卷 = type=cron,cronexp="58 59 9,17,22,23 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_19_6.js
 ============小火箭=========
@@ -20,7 +20,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭通知推送
-const randomCount = $.isNode() ? 20 : 5;
+const randomCount = $.isNode() ? 35 : 5;
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 if ($.isNode()) {
