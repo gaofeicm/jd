@@ -11,7 +11,7 @@ cron 0 0,10,20 * * * jd_618_red.js
 */
 const $ = new Env('618红包');
 $.CODE618 = $.isNode() ? (process.env.CODE618 ? process.env.CODE618 : '') : '';
-const jdCookieNode = require('./jdCookie.js');
+const jdCookieNode = require('../jdCookie.js');
 let cookiesArr = [];
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {

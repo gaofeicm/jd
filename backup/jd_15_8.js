@@ -16,9 +16,9 @@ cron "58 59 8,11,14,17,19 * * *" script-path=https://raw.githubusercontent.com/K
 const $ = new Env('抢极速版全品卷15-8');
 const moment = require('moment');
 //进容器安装依赖： npm install -g moment
-const notify = $.isNode() ? require('./sendNotify') : '';
+const notify = $.isNode() ? require('../sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
-const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+const jdCookieNode = $.isNode() ? require('../jdCookie.js') : '';
 let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭通知推送
 const randomCount = $.isNode() ? 50 : 5;
 //IOS等用户直接用NobyDa的jd cookie
@@ -101,7 +101,7 @@ function taskUrl(function_id, body = {}) {
       'origin': 'https://pro.m.jd.com',
       "Referer": "https://pro.m.jd.com/jdlite/active/3H885vA4sQj6ctYzzPVix4iiYN2P/index.html?lng=106.476617&lat=29.502674&sid=fbc43764317f538b90e0f9ab43c8285w&un_area=4_50952_106_0",
       "Cookie": cookie,
-      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
     },
     body: "body=%7B%22activityId%22:%223H885vA4sQj6ctYzzPVix4iiYN2P%22,%22scene%22:%221%22,%22args%22:%22key=DDF1B71D0AF91A8547973CE5362A890F18C8E73AAC10BA9179CE5D2D745E95AC9AC125029761397270C947AC9F5E11CE_bingo,roleId=3FE9EECAAA41B666E4FFAF79F20E2112EC5A32B22271AD04523B3C66AE5807591E0DB913F0F40F86F97AAA49D12C568D47FEEE50418AD25C6B23D81C476A40CB07BCCE74C4EDAD2E0D1BCF515F06DECE1C79C5F409AAF7839BBA73348757D4B6F067273E687EBFA6962B43828DCE730A6150410CEBFEE6428F5DDEA70EA452E1FAB53E44A0F329CB6092969A7FFC8AF4DA436133338C85E867796E9DE17662E67C347206A542903A5B3B27EB63D9C4F6_bingo,strengthenKey=23E54392244AB3FDF77741AAA3B45355EC4D1FB0BE692A59883FE80BF1050CBCCE2246069F3C8C3B84D58045D1222E89_bingo%22,%22platform%22:%221%22,%22orgType%22:%222%22,%22openId%22:%22-1%22,%22pageClickKey%22:%22-1%22,%22eid%22:%22THIKT6UGMBZZEU4HI5AVPP2FZTC6T4KEVY4UMWK7WZ7XRWNSL7XIKY44X7DAOJ25U56LFNNRDCKGQCTETFUR6PEIDY%22,%22fp%22:%22ae02955b21abe73be39c4bec49eef46e%22,%22shshshfp%22:%22c5649fdf1ae56d356fff183cfc44f67f%22,%22shshshfpa%22:%22003b224c-460b-d4d7-afc6-42819bbf4397-1607913047%22,%22shshshfpb%22:%22p4M+T9gtlthOcs1QUfQTeIQ==%22,%22childActivityUrl%22:%22https%253A%252F%252Fprodev.m.jd.com%252Fjdlite%252Factive%252F3H885vA4sQj6ctYzzPVix4iiYN2P%252Findex.html%253Fcu%253Dtrue%2526utm_source%253Dwww.gaofeicm.cf%2526utm_medium%253Djingfen%2526utm_campaign%253Dt_1000228052_%2526utm_term%253D33ae8c5f4d2749399508dfca39e420f6%22,%22userArea%22:%22-1%22,%22client%22:%22-1%22,%22clientVersion%22:%22-1%22,%22uuid%22:%22-1%22,%22osVersion%22:%22-1%22,%22brand%22:%22-1%22,%22model%22:%22-1%22,%22networkType%22:%22-1%22,%22jda%22:%22122270672.1607913046991251934754.1607913047.1653287179.1653288479.286%22,%22pageClick%22:%22Babel_Coupon%22,%22couponSource%22:%22manual%22,%22couponSourceDetail%22:%22-100%22,%22channel%22:%22%E9%80%9A%E5%A4%A9%E5%A1%94%E4%BC%9A%E5%9C%BA%22,%22batchId%22:%22856464914%22,%22headArea%22:%22605715ec560d6508f7403b91b677d79c%22,%22mitemAddrId%22:%22%22,%22geo%22:%7B%22lng%22:%22%22,%22lat%22:%22%22%7D,%22addressId%22:%22%22,%22posLng%22:%22%22,%22posLat%22:%22%22,%22jdv%22:%22www.gaofeicm.cf%7Ct_1000228052_%7Cjingfen%7C33ae8c5f4d2749399508dfca39e420f6%22,%22focus%22:%22%22,%22innerAnchor%22:%22%22,%22cv%22:%222.0%22,%22log%22:%221653289203172~1eTZ5cyW1hcMDFmYWpBVDk5MQ==.V1dfcmZeWFt4bVFYXz8+XgMac2cxLjlwKldNXG1lSlAUcypXHxp1GU01UyYgChUCDjcVUDsUMjc1DwgFW1wU.0f61c1ac~1,1~B2A7A622425920844C414F247C9FB86EA3A73975~1hhia1m~C~TRFMXBoMbW4UE0xYWxECahpSBx4PdBQEcB8LHU0aQhEUE1wEGwR9HQpwGgoPHVkaQhEUE1wCGwR9HQpwGnEJHVkaQhFlHRpRRF0aCwsaFEBLEwIUBwUNAgoODwEIBQ4PBAIJCAAUGhFPVFwUDBFMRUxQUFVNVxoaFERdUBoMFFVeRUxDQkZZExQURldWEwJtBQYUAwsDDh8JCRQHAB8LHQhrGhFSWxoMBR8aUksUDBEMAVoOAVcOAQ1QAlIOUw4DVwtcCVtQBwpbUgAEUwZeCRoaFF1IEwIUYVpWAgoUGhFMEwIHAAYLAwAPBAMLAA8EGhFSWhoMFFIaHRpQRlEaCxpGAn4TZQFRQl9MWXdVRQJpZF5nYlZxYAULFB8aX04UDBF/XldRWlYYeFZVGBEUE1ZXQBECE1sUGhFLUkoUDGgJAQAGGgIBAwhrGhFKXhoMbRFZExQUVxEUE1kUGhFZExQUVxEUE1kUGhFZE2UaFFpXUBoMFFVeV15QUEdMExQUV1kaCxpDFB8aUlEUDBFPAhYDGAEaHRpVUGxOEwIUDwoaHRpUUhECE0pXWFdXXAVbYQp+W1xCZhEUE1VcFAljABQGGgNlHRpUWlxfEwIUVxEUE1VFURECE1kUSw==~03wnw1d%22,%22random%22:%22mW9FjdtP%22,%22floor_id%22:%2278017636%22%7D&screen=1080*2145&client=wh5&clientVersion=1.0.0&sid=ba8db379359a6a25c74b32c40c52427w&uuid=1637222757035542254276.2597.1651572009314&area=4_50952_106_0"
   }
@@ -119,7 +119,7 @@ function TotalBean() {
         "Connection": "keep-alive",
         "Cookie": cookie,
         "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
       }
     }
     $.post(options, (err, resp, data) => {
