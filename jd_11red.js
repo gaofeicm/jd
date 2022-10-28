@@ -8,7 +8,7 @@ rebatePin 填 分享码，可不填，默认助力前五 如果小于五个号 �
 ============Quantumultx===============
 [task_local]
 #双十一红包
-0 0 0,12,19,20 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_618red.js, tag=双十一红包, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_bean_home.png, enabled=true
+0 0 0,12,20 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_618red.js, tag=双十一红包, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_bean_home.png, enabled=true
 
 ================Loon==============
 [Script]
@@ -443,6 +443,7 @@ function getUrl1() {
 }
 
 function getUrl() {
+    console.log(`https://u.jd.com/${rebateCode}${$.shareCode && "?s=" + $.shareCode || ""}`);
     return new Promise(resolve => {
         const options = {
             url: `https://u.jd.com/${rebateCode}${$.shareCode && "?s=" + $.shareCode || ""}`,
