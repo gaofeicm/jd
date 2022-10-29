@@ -139,7 +139,7 @@ let timeH = $.time('H')
     }
     if (Object.getOwnPropertyNames($.shareCodeArr).length > 0 && $.shareCodeArr["updateTime"] != pinUpdateTime) $.setdata($.shareCodeArr, 'gua_JDnhjRed')
     if (message) {
-        $.msg($.name, ``, `${message}\nhttps://u.jd.com/kKmbzrz\n\n跳转到app 可查看助力情况`);
+        $.msg($.name, ``, `${message}\nhttps://u.jd.com/ktmDgBc\n\n跳转到app 可查看助力情况`);
         if ($.isNode()) {
             // await notify.sendNotify(`${$.name}`, `${message}\n\nhttps://u.jd.com/kKmbzrz\n跳转到app 可查看助力情况`);
         }
@@ -154,10 +154,8 @@ async function run(type = 0) {
         let s = 0
         let t = 0
         do {
-            const flCodeArr = ["xItDAlu", "xMt2AfC", "xdtSupd", "xLtApdk", "xKtJyyl"];//鸡蛋不要放在一个篮子里
-            for (let i = 0; i < 5; i++) {
-                flCodeArr.push(rebateCodes)
-            }
+            const flCodeArr = ["xItDAlu", "xMt2AfC", "xdtSupd", "xLtApdk", "xKtJyyl"];
+            flCodeArr.push(rebateCodes)
             rebateCode = flCodeArr[Math.floor((Math.random() * flCodeArr.length))]
             if (t > 2) s = 0
             $.flag = 0
@@ -242,7 +240,7 @@ function getCoupons(shareId = '', type = 1) {
         let h5st = h5stSign(body) || 'undefined'
         let message = ''
         let opts = {
-            url: `https://api.m.jd.com/api?functionId=getCoupons&appid=u&_=${time}&loginType=2&body=${(JSON.stringify(body))}&client=apple&clientVersion=8.3.6&h5st=${h5st}`,
+            url: `https://api.m.jd.com/api?functionId=getCoupons&appid=u&_=${time}&loginType=2&body=${(JSON.stringify(body))}&client=iPhone&clientVersion=&osVersion=iOS&screen=390*844&d_brand=iPhone&d_model=iPhone&lang=zh-CN&sdkVersion=&openudid=&h5st=${h5st}`,
             headers: {
                 "Accept-Language": "zh-cn",
                 "Accept-Encoding": "gzip, deflate, br",
