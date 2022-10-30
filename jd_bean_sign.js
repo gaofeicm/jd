@@ -10,7 +10,7 @@ Modified From github https://github.com/ruicky/jd_sign_bot
 0 5 * * * https://github.com/JDWXX/jd_job/blob/master/jd/jd_bean_sign.js, tag=京东多合一签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
  */
 const $ = new Env('京东多合一签到');
-const notify = $.isNode() ? require('./sendNotify') : '';
+const notify = $.isNode() ? require('./function/sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./function/jdCookie.js') : '';
 const exec = require('child_process').execSync
