@@ -12,7 +12,7 @@ rebatePin 填 分享码，可不填，默认助力前五 如果小于五个号 �
 
 ================Loon==============
 [Script]
-cron "0 0 0,12,19,20 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_618red.js, tag=双十一红包
+cron "0 0 0,12,20 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_618red.js, tag=双十一红包
 
 ===============Surge=================
 双十一红包 = type=cron,cronexp="0 0 0,12,19,20 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_618red.js
