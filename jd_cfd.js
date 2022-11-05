@@ -11,11 +11,11 @@ cron 1 0-23/4 * * * jd_cfd.js
 ============Quantumultx===============
 [task_local]
 #京喜财富岛
-1 0-23/2 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_cfd.js, tag=京喜财富岛, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+1 0-23/4 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_cfd.js, tag=京喜财富岛, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "1 0-23/2 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_cfd.js,tag=京喜财富岛
+cron "3 0-23/4 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_cfd.js,tag=京喜财富岛
 
 ===============Surge=================
 京喜财富岛 = type=cron,cronexp="1 0-23/2 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_cfd.js
