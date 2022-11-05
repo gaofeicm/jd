@@ -66,7 +66,6 @@ if ($.isNode()) {
     return;
   }
   $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
-  console.log(`\n活动维护，助力升级中\n`);return
 	await requestAlgo();
   await $.wait(1000)
   for (let i = 0; i < cookiesArr.length; i++) {
