@@ -8,7 +8,7 @@
 ============Quantumultx===============
 [task_local]
 #京喜财富岛互助
-33 0,14 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_cfd_help.js, tag=京喜财富岛互助, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+13 1,13 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_cfd_help.js, tag=京喜财富岛互助, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
 
 ================Loon==============
 [Script]
