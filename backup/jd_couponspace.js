@@ -5,8 +5,8 @@ updatetime: 2022/10/27
  */
 
 const $ = new Env('卷民空间站分红包');
-const notify = $.isNode() ? require('../function/sendNotify') : '';
-const jdCookieNode = $.isNode() ? require('../function/jdCookie.js') : '';
+const notify = $.isNode() ? require('./function/sendNotify') : '';
+const jdCookieNode = $.isNode() ? require('./function/jdCookie.js') : '';
 let jdNotify = true;
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message = '';
@@ -337,7 +337,7 @@ function getExploreStatus() {
             'Origin': 'https://prodev.m.jd.com',
             'Referer': 'https://prodev.m.jd.com/',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+            'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
             'Cookie': cookie
         }
     }
@@ -371,7 +371,7 @@ function taskUrl(fn, body) {
             'Origin': 'https://h5.m.jd.com',
             'Referer': 'https://h5.m.jd.com/',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+            'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
             'Cookie': cookie
         }
     }
