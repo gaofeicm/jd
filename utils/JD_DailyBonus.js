@@ -286,8 +286,15 @@ function JingDongBean(s) {
       $nobyda.post(JDBUrl, function(error, response, data) {
         try {
           if (error) {
+            console.log("********************************")
+            console.log(error)
+            console.log(response)
+            console.log(data)
             throw new Error(error)
           } else {
+            console.log("-------------------------------")
+            console.log(error)
+            console.log(response)
             console.log(data)
             const cc = JSON.parse(data)
             const Details = LogDetails ? "response:\n" + data : '';
