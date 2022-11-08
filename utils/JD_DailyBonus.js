@@ -21,7 +21,7 @@ var OtherKey = ``; //无限账号Cookie json串数据, 请严格按照json格式
 
 var LogDetails = false; //是否开启响应日志, true则开启
 
-var stop = '0'; //自定义延迟签到, 单位毫秒. 默认分批并发无延迟; 该参数接受随机或指定延迟(例: '2000'则表示延迟2秒; '2000-5000'则表示延迟最小2秒,最大5秒内的随机延迟), 如填入延迟则切换顺序签到(耗时较长), Surge用户请注意在SurgeUI界面调整脚本超时; 注: 该参数Node.js或JSbox环境下已配置数据持久化, 留空(var stop = '')即可清除.
+var stop = '2000'; //自定义延迟签到, 单位毫秒. 默认分批并发无延迟; 该参数接受随机或指定延迟(例: '2000'则表示延迟2秒; '2000-5000'则表示延迟最小2秒,最大5秒内的随机延迟), 如填入延迟则切换顺序签到(耗时较长), Surge用户请注意在SurgeUI界面调整脚本超时; 注: 该参数Node.js或JSbox环境下已配置数据持久化, 留空(var stop = '')即可清除.
 
 var DeleteCookie = false; //是否清除所有Cookie, true则开启.
 
@@ -104,7 +104,7 @@ async function all(cookie, jrBody) {
       await JingRongDoll(stop, 'JDDouble', '金融京豆-双签', 'F68B2C3E71', '', '', '', 'jingdou'); //京东金融 京豆双签
       break;
     default:
-      await JingDongBean(0); //京东京豆
+      await JingDongBean(stop); //京东京豆
       await JingDongStore(Wait(stop)); //京东超市
       await JingRongSteel(Wait(stop), jrBody); //金融钢镚
       await JingDongTurn(Wait(stop)); //京东转盘
@@ -272,6 +272,7 @@ function notify() {
 })
 
 function JingDongBean(s) {
+  console.log("延迟间隔" + s + "毫秒");
   merge.JDBean = {};
   return new Promise(resolve => {
     if (disable("JDBean")) return resolve()
@@ -286,16 +287,8 @@ function JingDongBean(s) {
       $nobyda.post(JDBUrl, function(error, response, data) {
         try {
           if (error) {
-            console.log("********************************")
-            console.log(error)
-            console.log(response)
-            console.log(data)
             throw new Error(error)
           } else {
-            console.log("-------------------------------")
-            console.log(error)
-            console.log(response)
-            console.log(data)
             const cc = JSON.parse(data)
             const Details = LogDetails ? "response:\n" + data : '';
             if (cc.code == 3) {
