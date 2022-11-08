@@ -313,7 +313,7 @@ function JingDongBean(s) {
               } else if (data.match(/continuityAward/)) {
                 merge.JDBean.notify = "京东商城-京豆: 成功, 明细: " + cc.data.continuityAward.beanAward.beanCount + "京豆 🐶"
                 merge.JDBean.bean = cc.data.continuityAward.beanAward.beanCount
-              } else if (data.match(/新人签到/)) {/
+              } else if (data.match(/新人签到/)) {
                 const quantity = data.match(/beanCount\":\"(\d+)\".+今天/)
                 merge.JDBean.bean = quantity ? quantity[1] : 0
                 merge.JDBean.notify = "京东商城-京豆: 成功, 明细: " + (quantity ? quantity[1] : "无") + "京豆 🐶"
