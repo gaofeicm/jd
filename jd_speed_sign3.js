@@ -10,17 +10,17 @@
 ============Quantumultx===============
 [task_local]
 #京东极速版
-8 2,14 * * * jd_speed_sign.js, tag=京东极速版, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
+8 2,14 * * * jd_speed_sign3.js, tag=京东极速版3, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "18 1,13 * * *" script-path=jd_speed_sign.js,tag=京东极速版3
+cron "18 1,13 * * *" script-path=jd_speed_sign3.js,tag=京东极速版3
 
 ===============Surge=================
-京东极速版 = type=cron,cronexp="21 3,8 * * *",wake-system=1,timeout=33600,script-path=jd_speed_sign.js
+京东极速版 = type=cron,cronexp="21 3,8 * * *",wake-system=1,timeout=33600,script-path=jd_speed_sign1.js
 
 ============小火箭=========
-京东极速版 = type=cron,script-path=jd_speed_sign.js, cronexpr="21 3,8 * * *", timeout=33600, enable=true
+京东极速版 = type=cron,script-path=jd_speed_sign1.js, cronexpr="21 3,8 * * *", timeout=33600, enable=true
 */
 
 const $ = new Env('京东极速版3');
