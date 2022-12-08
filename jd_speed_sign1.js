@@ -23,7 +23,7 @@ cron "18 1,13 * * *" script-path=jd_speed_sign1.js,tag=京东极速版1
 京东极速版 = type=cron,script-path=jd_speed_sign1.js, cronexpr="21 3,8 * * *", timeout=33600, enable=true
 */
 
-const $ = new Env('京东极速版');
+const $ = new Env('京东极速版1');
 
 const notify = $.isNode() ? require('./function/sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
