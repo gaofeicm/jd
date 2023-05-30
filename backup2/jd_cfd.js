@@ -32,8 +32,8 @@ cron "3 0-23/4 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/m
 });
 const $ = new Env("京喜财富岛");
 const JD_API_HOST = "https://m.jingxi.com/";
-const notify = $.isNode() ? require('./function/sendNotify') : '';
-const jdCookieNode = $.isNode() ? require("./function/jdCookie.js") : "";
+const notify = $.isNode() ? require('../function/sendNotify') : '';
+const jdCookieNode = $.isNode() ? require("../function/jdCookie.js") : "";
 $.showLog = $.getdata("cfd_showLog") ? $.getdata("cfd_showLog") === "true" : false;
 $.notifyTime = $.getdata("cfd_notifyTime");
 $.result = [];

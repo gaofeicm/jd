@@ -45,7 +45,7 @@ $.newShareCode = [];
 let llerror=false;
 let lnrun = 0;
 let lnruns = 0;
-!(async () => {  
+!(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
@@ -88,7 +88,7 @@ let lnruns = 0;
 async function jdPlantBean() {
   try {
     console.log(`获取任务及基本信息`)
-    await plantBeanIndex(); 
+    await plantBeanIndex();
     if(llerror)
 		return;
     for (let i = 0; i < $.plantBeanIndexResult.data.roundList.length; i++) {
@@ -133,7 +133,7 @@ async function doHelp() {
 
   console.log(`\n【开始账号内互助】\n`);
   $.newShareCode = [...(jdPlantBeanShareArr || [])]
-  
+
   for (let plantUuid of $.newShareCode) {
     console.log(`【${$.UserName}】开始助力: ${plantUuid}`);
     if (!plantUuid) continue;
@@ -290,7 +290,7 @@ async function plantBeanIndex() {
     if ($.plantBeanIndexResult.errorCode) {
         console.log(`获取任务及基本信息出错，10秒后重试\n`)
         await $.wait(10000);
-        $.plantBeanIndexResult = await request('plantBeanIndex'); 
+        $.plantBeanIndexResult = await request('plantBeanIndex');
         if ($.plantBeanIndexResult.errorCode === 'PB101') {
             console.log(`\n活动太火爆了，还是去买买买吧！\n`)
 			llerror=true;
@@ -300,7 +300,7 @@ async function plantBeanIndex() {
     if ($.plantBeanIndexResult.errorCode) {
         console.log(`获取任务及基本信息出错，30秒后重试\n`)
         await $.wait(30000);
-        $.plantBeanIndexResult = await request('plantBeanIndex'); 
+        $.plantBeanIndexResult = await request('plantBeanIndex');
         if ($.plantBeanIndexResult.errorCode === 'PB101') {
             console.log(`\n活动太火爆了，还是去买买买吧！\n`)
 			llerror=true;
@@ -364,7 +364,7 @@ function TotalBean() {
         "Connection": "keep-alive",
         "Cookie": cookie,
         "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
       },
       "timeout": 10000,
     }
@@ -402,7 +402,7 @@ function requireConfig() {
     //console.log('开始获取种豆得豆配置文件\n')
     notify = $.isNode() ? require('./sendNotify') : '';
     //Node.js用户请在jdCookie.js处填写京东ck;
-    const jdCookieNode = $.isNode() ? require('./function/jdCookie.js') : '';
+    const jdCookieNode = $.isNode() ? require('../function/jdCookie.js') : '';
     const jdPlantBeanShareCodes = '';
     //IOS等用户直接用NobyDa的jd cookie
     if ($.isNode()) {
@@ -466,7 +466,7 @@ function taskUrl(function_id, body) {
       //"Host": "api.m.jd.com",
       "Accept": "*/*",
       //"Connection": "keep-alive",
-      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       "Accept-Language": "zh-Hans-CN;q=1,en-CN;q=0.9",
       "Accept-Encoding": "gzip, deflate, br",
       "Content-Type": "application/x-www-form-urlencoded"

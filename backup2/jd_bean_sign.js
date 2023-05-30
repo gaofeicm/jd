@@ -7,8 +7,8 @@ cron "20 0,7,9 * * *" script-path= jd_bean_sign.js,tag= 京东多合一签到
  */
 
 const $ = new Env('京东多合一签到');
-const notify = $.isNode() ? require('./function/sendNotify') : '';
-const jdCookieNode = $.isNode() ? require('./function/jdCookie.js') : '';
+const notify = $.isNode() ? require('../function/sendNotify') : '';
+const jdCookieNode = $.isNode() ? require('../function/jdCookie.js') : '';
 const exec = require('child_process').execSync
 const fs = require('fs')
 const download = require('download');

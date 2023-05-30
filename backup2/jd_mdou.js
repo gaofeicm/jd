@@ -5,8 +5,8 @@
 */
 
 const $ = new Env('MM领京豆');
-const jdCookieNode = $.isNode() ? require('./function/jdCookie.js') : '';
-const notify = $.isNode() ? require('./function/sendNotify') : '';
+const jdCookieNode = $.isNode() ? require('../function/jdCookie.js') : '';
+const notify = $.isNode() ? require('../function/sendNotify') : '';
 
 const jdVersion = '10.1.2'
 const iphoneVersion = [Math.ceil(Math.random()*2+12),Math.ceil(Math.random()*4)]

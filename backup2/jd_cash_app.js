@@ -27,9 +27,9 @@ cron "2 0-23/4 * * *" script-path=jd_cash.js,tag=签到领现金
  */
 const $ = new Env('京东APP签到领现金');
 let jdSignUrl = 'https://api.nolanstore.top/sign'
-const notify = $.isNode() ? require('./function/sendNotify') : '';
+const notify = $.isNode() ? require('../function/sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
-const jdCookieNode = $.isNode() ? require('./function/jdCookie.js') : '';
+const jdCookieNode = $.isNode() ? require('../function/jdCookie.js') : '';
 let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭通知推送
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
@@ -222,7 +222,7 @@ function index() {
 async function appdoTask(type,taskInfo) {
   let functionId = 'cash_doTask'
   let body = {"type":type,"taskInfo":taskInfo}
-  let sign = await getSignfromNolan(functionId, body)  
+  let sign = await getSignfromNolan(functionId, body)
 
   return new Promise((resolve) => {
     $.post(apptaskUrl(functionId, sign), (err, resp, data) => {
@@ -275,7 +275,7 @@ function doTask(type,taskInfo) {
     })
   })
 }
-function getSignfromNolan(functionId, body) {	
+function getSignfromNolan(functionId, body) {
     var strsign = '';
 	let data = {
       "fn":functionId,
@@ -294,9 +294,9 @@ function getSignfromNolan(functionId, body) {
 		    timeout: 30000
         }
         $.post(url, async(err, resp, data) => {
-            try {				
+            try {
                 data = JSON.parse(data);
-                if (data && data.body) {                    
+                if (data && data.body) {
                     if (data.body)
                         strsign = data.body || '';
                     if (strsign != '')
@@ -305,7 +305,7 @@ function getSignfromNolan(functionId, body) {
                         console.log("签名获取失败.");
                 } else {
                     console.log("签名获取失败.");
-                }				
+                }
             }catch (e) {
                 $.logErr(e, resp);
             }finally {
@@ -429,7 +429,7 @@ function taskUrl(functionId, body = {}) {
       'Connection': 'keep-alive',
       'Content-Type': 'application/json',
       'Referer': 'http://wq.jd.com/wxapp/pages/hd-interaction/index/index',
-      'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       'Accept-Language': 'zh-cn',
       'Accept-Encoding': 'gzip, deflate, br',
     }
@@ -481,7 +481,7 @@ function TotalBean() {
         "Connection": "keep-alive",
         "Cookie": cookie,
         "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
       }
     }
     $.post(options, (err, resp, data) => {

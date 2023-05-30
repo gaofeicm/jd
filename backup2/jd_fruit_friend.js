@@ -76,7 +76,7 @@ let llgetshare = false;
                 message = '';
                 subTitle = '';
                 option = {};
-                $.UA = require('./function/USER_AGENTS').UARAM();
+                $.UA = require('../function/USER_AGENTS').UARAM();
                 $.retry = 0;
                 llgetshare = false;
                 await GetCollect();
@@ -578,9 +578,9 @@ function timeFormat(time) {
 function requireConfig() {
     return new Promise(resolve => {
         console.log('开始获取配置文件\n')
-        notify = $.isNode() ? require('./function/sendNotify') : '';
+        notify = $.isNode() ? require('../function/sendNotify') : '';
         //Node.js用户请在jdCookie.js处填写京东ck;
-        const jdCookieNode = $.isNode() ? require('./function/jdCookie.js') : '';
+        const jdCookieNode = $.isNode() ? require('../function/jdCookie.js') : '';
         //IOS等用户直接用NobyDa的jd cookie
         if ($.isNode()) {
             Object.keys(jdCookieNode).forEach((item) => {
@@ -606,7 +606,7 @@ function TotalBean() {
                 Accept: "*/*",
                 Connection: "keep-alive",
                 Cookie: cookie,
-                "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+                "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('../function/USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
                 "Accept-Language": "zh-cn",
                 "Referer": "https://home.m.jd.com/myJd/newhome.action?sceneval=2&ufc=&",
                 "Accept-Encoding": "gzip, deflate, br"
